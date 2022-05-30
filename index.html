@@ -169,11 +169,27 @@ modal.style.display = "flex";
       var textarea = document.getElementsByTagName('textarea')[0]
       var container = document.getElementsByClassName('container')[0]
       var template = document.getElementsByClassName('box')[0]
+      var today = new Date()
+      var months = {
+        0 : 'January',
+        1 : 'February',
+        2 : 'March',
+        3 : 'April',
+        4 : 'May',
+        5 : 'June',
+        6 : 'July',
+        7 : 'August',
+        8 : 'September',
+        9 : 'October',
+        10 : 'November',
+        11 : 'December'
+      }
 
       var new_post = document.createElement('div')
       new_post.className = 'box'
       var text = "If you look at what you have in life, you'll always have more. If you look at what you don't have in life, you'll never have enough. -Oprah Winfrey"
-      new_post.innerHTML = template.innerHTML.replace(text, textarea.value)
+      var date = today.getDate()+' '+months[today.getMonth()]+' '+today.getFullYear()
+      new_post.innerHTML = template.innerHTML.replace(text, textarea.value).replace('21 March 2021' , date)
 
       container.appendChild(new_post)
       modal.style.display = "none";

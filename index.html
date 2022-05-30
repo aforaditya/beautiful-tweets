@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Beautiful Tweets UI</title>
+  <title>Cyan Grid</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://kit.fontawesome.com/22a0cb00a1.js" crossorigin="anonymous"></script>
 
@@ -140,7 +140,7 @@
       <label class="modal-heading">Add your tweet!</label>
       <textarea name="name" rows="8" cols="80" placeholder="Type something..."></textarea>
       <div class="modal-bar">
-        <button type="button">Submit</button>
+        <button type="button" class="submit">Submit</button>
         <label class="cancel-btn">Cancel</label>
       </div>
 </div>
@@ -154,12 +154,35 @@
      var close = document.getElementsByClassName("cancel-btn")[0];
      var modal = document.getElementsByClassName("add-modal")[0];
      var add = document.getElementsByClassName("add-btn")[0];
+     var submit = document.getElementsByClassName("submit")[0];
+     
+
      close.onclick = function() {
 modal.style.display = "none";
 }
 add.onclick = function() {
 modal.style.display = "flex";
 }
+   
+     submit.onclick = ()=>{
+
+      var textarea = document.getElementsByTagName('textarea')[0]
+      var container = document.getElementsByClassName('container')[0]
+      var template = document.getElementsByClassName('box')[0]
+
+      var new_post = document.createElement('div')
+      new_post.className = 'box'
+      var text = "If you look at what you have in life, you'll always have more. If you look at what you don't have in life, you'll never have enough. -Oprah Winfrey"
+      new_post.innerHTML = template.innerHTML.replace(text, textarea.value)
+
+      container.appendChild(new_post)
+      modal.style.display = "none";
+
+      textarea.value = ""
+           
+     }
+
+
 
 </script>
 
